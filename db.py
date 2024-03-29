@@ -1,13 +1,27 @@
 import sqlite3
 
-# Connect to the database
-conn = sqlite3.connect('tasks.db')
-c = conn.cursor()
+def create_task_db():
+    """Create task database."""
+    conn = sqlite3.connect('tasks.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS tasks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                task TEXT,
+                completed INTEGER)''')
+    conn.commit()
+    conn.close()
 
-# Create a table to store tasks if it doesn't exist
-c.execute('''CREATE TABLE IF NOT EXISTS tasks
-             (id INTEGER PRIMARY KEY AUTOINCREMENT, task TEXT, completed INTEGER)''')
+def create_schedule_db():
+    """Create schedule database."""
+    conn = sqlite3.connect('schedule.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS schedule (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT,
+                date DATE)''')
+    conn.commit()
+    conn.close()
 
-# Commit changes and close connection
-conn.commit()
-conn.close()
+if __name__ == "__main__":
+    create_task_db()
+    create_schedule_db()
