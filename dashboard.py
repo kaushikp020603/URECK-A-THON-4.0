@@ -13,6 +13,7 @@ options = {
     "📚 Text Summarizer": "Text_summarizer.py",
     "📋 Study Planner": "Study_planner.py",
     "🗓️ Note Maker": "cornell_notes_taker",
+    "🗓️ Youtube": "youtube.py",
 
 }
 
