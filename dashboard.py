@@ -14,6 +14,8 @@ options = {
     "📋 Study Planner": "Study_planner.py",
     "🗓️ Note Maker": "cornell_notes_taker",
     "🗓️ Youtube Video Recommender": "youtube.py",
+    "🗓️ Doubt Solver": "doubt.py",
+
 
 }
 
