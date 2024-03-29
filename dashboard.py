@@ -10,7 +10,9 @@ options = {
     "🗓️ Task Manager": "task_manager.py",
     "👩‍🎓 Schedule Manager": "schedule_manager.py",
     "📋 Quiz Generator": "gui.py",
-    "📚 Text Summarizer": "Text_summarizer.py"
+    "📚 Text Summarizer": "Text_summarizer.py",
+    "📋 Study Planner": "Study_planner.py",
+
 }
 
 # Display buttons vertically
