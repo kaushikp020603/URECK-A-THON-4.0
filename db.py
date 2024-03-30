@@ -7,7 +7,8 @@ def create_task_db():
     c.execute('''CREATE TABLE IF NOT EXISTS tasks (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 task TEXT,
-                completed INTEGER)''')
+                priority TEXT,
+                completed INTEGER)''')  # Add 'priority' column to the table
     conn.commit()
     conn.close()
 

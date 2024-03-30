@@ -2,16 +2,16 @@ import streamlit as st
 import sqlite3
 
 # Function to create connection to SQLite database
-def create_connection():
-    conn = sqlite3.connect('tasks.db')
+def create_connection(db_name='tasks.db'):
+    conn = sqlite3.connect(db_name)
     return conn
 
 # Function to create a new task
-def create_task(conn, task):
-    sql = ''' INSERT INTO tasks(task, completed)
-              VALUES(?,0) '''
+def create_task(conn, task, priority):
+    sql = ''' INSERT INTO tasks(task, priority, completed)
+              VALUES(?,?,0) '''
     cur = conn.cursor()
-    cur.execute(sql, (task,))
+    cur.execute(sql, (task, priority))
     conn.commit()
     return cur.lastrowid
 
@@ -32,9 +32,9 @@ def delete_task(conn, task_id):
     conn.commit()
 
 # Function to display tasks
-def show_tasks(conn):
+def show_tasks(conn, completed=False):
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks ORDER BY completed ASC")  # Order by completion status (incomplete tasks first)
+    cur.execute("SELECT * FROM tasks WHERE completed = ? ORDER BY priority DESC", (1 if completed else 0,))  
     tasks = cur.fetchall()
     return tasks
 
@@ -48,30 +48,35 @@ def main():
 
     # Input form to add new tasks
     new_task = st.text_input("Add new task:")
+    priority = st.selectbox("Priority:", ["Low", "Medium", "High"])
     if st.button("Add Task") and new_task:
-        create_task(conn, new_task)
+        create_task(conn, new_task, priority)
         st.success("Task added successfully!")
         st.experimental_rerun()
 
     # Display tasks
-    tasks = show_tasks(conn)
-    if tasks:
-        st.header("Tasks:")
-        for task in tasks:
-            task_id, task_desc, completed = task
-            if completed:
-                st.write(f"~~{task_desc}~~ (Completed)")
-            else:
-                col1, col2, col3 = st.columns([0.1, 0.8, 0.1])
-                col1.write("")
-                if col2.checkbox(task_desc, key=f"checkbox_{task_id}"):
-                    complete_task(conn, task_id)
-                    st.write("Task marked as completed!")
-                    st.experimental_rerun()
-                if not completed and col3.button("❌", key=f"delete_{task_id}"):
-                    delete_task(conn, task_id)
-                    st.success("Task deleted!")
-                    st.experimental_rerun()
+    completed_tasks = show_tasks(conn, completed=True)
+    incomplete_tasks = show_tasks(conn)
+    
+    if incomplete_tasks:
+        st.header("Incomplete Tasks:")
+        for task in incomplete_tasks:
+            task_id, task_desc, task_priority, completed = task
+            st.write(f"**{task_desc}** - Priority: {task_priority}")
+            if st.checkbox("Complete", key=f"checkbox_{task_id}"):
+                complete_task(conn, task_id)
+                st.write("Task marked as completed!")
+                st.experimental_rerun()
+            if st.button("Delete", key=f"delete_{task_id}"):
+                delete_task(conn, task_id)
+                st.success("Task deleted!")
+                st.experimental_rerun()
+
+    if completed_tasks:
+        st.header("Completed Tasks:")
+        for task in completed_tasks:
+            task_id, task_desc, task_priority, completed = task
+            st.write(f"~~{task_desc}~~ - Priority: {task_priority}")
 
     # Close database connection
     conn.close()
