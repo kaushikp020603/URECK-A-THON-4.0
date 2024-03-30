@@ -53,13 +53,24 @@ def main():
     schedule_items = show_schedule(conn)
     if schedule_items:
         st.header("Schedule:")
+        
+        # Create a dictionary to store items by date
+        items_by_date = {}
         for item in schedule_items:
-            item_id, title, datetime_obj = item
-            st.write(f"**{title}** - {datetime_obj}")
-            if st.button("Delete", key=f"delete_{item_id}"):
-                delete_schedule_item(conn, item_id)
-                st.success("Schedule item deleted!")
-                st.experimental_rerun()
+            item_id, title, datetime_str = item
+            datetime_obj = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M:%S")
+            date_str = datetime_obj.strftime('%Y-%m-%d')
+            if date_str not in items_by_date:
+                items_by_date[date_str] = []
+            items_by_date[date_str].append((title, datetime_obj.strftime('%H:%M')))
+        
+        # Display schedule in a calendar-like table
+        for date, items in items_by_date.items():
+            st.subheader(date)
+            table_data = []
+            for title, time in items:
+                table_data.append([time, title])
+            st.table(table_data)
 
     # Close database connection
     conn.close()
