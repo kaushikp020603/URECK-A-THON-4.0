@@ -50,23 +50,6 @@ With Study Buddy, you'll have access to a suite of intelligent tools and utiliti
 
 ### Why Study Buddy?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Built With
 
 This section lists major frameworks and libraries used in the project.
@@ -92,9 +75,10 @@ This section lists major frameworks and libraries used in the project.
 [Git.shield]: https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white
 [Git.url]: https://git-scm.com/
 
+### Domain
+*AIML*
 
-
-### Installation
+### Installation / Usage
 
 Follow these steps to install and set up the application:
 
