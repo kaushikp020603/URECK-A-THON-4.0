@@ -1,1 +1,8 @@
-
+streamlit
+sqlite3
+transformers
+openai
+streamlit-chat
+nltk
+spacy
+google-api-python-client
