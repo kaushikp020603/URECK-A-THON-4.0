@@ -9,7 +9,7 @@ st.write("Welcome to the Study Buddy  Dashboard. Explore various functionalities
 options = {
     "🗓️ Task Manager": "task_manager.py",
     "👩‍🎓 Schedule Manager": "schedule_manager.py",
-    "📋 Quiz Generator": "gui.py",
+    "📋 Quiz Generator": "quiz2.py",
     "📚 Text Summarizer": "Text_summarizer.py",
     "📋 Study Planner": "Study_planner.py",
     "🗓️ Note Maker": "cornell_notes_taker",
