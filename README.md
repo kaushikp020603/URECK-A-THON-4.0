@@ -1,12 +1,10 @@
 # URECK-A-THON-4.0
 
-
 <h1 align="center">
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://shaybeni.com/wp-content/uploads/2020/04/SB_logo_Anim_404w.gif" alt="Markdownify" width="200"></a>
   <br>
   Study Buddy: Your AI Study Companion 🚀📚
-
   <br>
 </h1>
 
@@ -30,11 +28,6 @@ Study Buddy is not just another study tool - it's your personal learning assista
 ### How Does It Work?
 
 With Study Buddy, you'll have access to a suite of intelligent tools and utilities that will supercharge your productivity, boost comprehension, and skyrocket your learning outcomes. From personalized study plans to interactive quizzes, Study Buddy has everything you need to succeed.
-
-
-
-
-
 
 ### Features Tailored For You:
 
@@ -75,8 +68,9 @@ This section lists major frameworks and libraries used in the project.
 [Git.shield]: https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white
 [Git.url]: https://git-scm.com/
 
-### Domain
-*AIML*
+### Tracks
+This project aligns with the following track:
+- **AI/ML (Artificial Intelligence/Machine Learning):** This project serves as an AI study companion, providing users with intelligent tools and utilities to enhance their learning experience. It utilizes AI and machine learning techniques to assist users in various aspects of studying, such as task management, scheduling, quiz generation, text summarization, note-taking, and more.
 
 ### Installation / Usage
 
@@ -101,14 +95,6 @@ Follow these steps to install and set up the application:
    streamlit run dashboard.py
    ```
 
-
-
-
-
-
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -124,22 +110,11 @@ If you have any suggestions for improvements, feature requests, or encounter any
 
 Your contributions help make this project better for everyone. Thank you for your help! 🙌
 
-
-
-
-
-
-
-
-
-
-
-
 ## Support
 
 If you encounter any issues or have questions, we're here to help!
 
-- **Issues:** If you encounter any problems with the application, please [open an issue](https://github.com/MagnusAustin/VEGA/issues) on the repository. We'll do our best to address it promptly.
+- **Issues:** If you encounter any problems with the application, please [open an issue](https://github.com/MagnusAustin/URECK-A-THON-4.0/issues) on the repository. We'll do our best to address it promptly.
 
 - **General Inquiries:** For general inquiries or further assistance, feel free to reach out to the project maintainers:
   - [Manas](mailto:manastare7@gmail.com)
@@ -148,7 +123,6 @@ If you encounter any issues or have questions, we're here to help!
   - [Amogh](mailto:amoghmparulekar@gmail.com) 
 
 Don't hesitate to contact us. We're here to support you!
-
 
 ## Acknowledgments:
    - Special thanks to Amogh Parulekar, Kaushik Prabhu-Nerurkar and Adarsh Pandey for their contributions to this project
