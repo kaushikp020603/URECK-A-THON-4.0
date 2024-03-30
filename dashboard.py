@@ -29,8 +29,9 @@ options = {
     "❓ Quiz Generator": "quiz2.py",
     "📑 Text Summarizer": "Text_summarizer.py",
     "📖 Study Planner": "Study_planner.py",
-    "🗒️ Note Maker": "cornell_notes_taker",
+    "🗒️ Note Maker": "cornell_notes_taker.py",
     "📺 Youtube Video Recommender": "youtube.py",
+    "📺 AVA: CHATBOT": "chat.py",
     "❓ Doubt Solver": "doubt.py",
 }
 
